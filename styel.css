@@ -251,15 +251,23 @@ nav {
     transform: translateX(0);
 }
 
-.image-placeholder {
+.image-container {
     width: 100%;
     height: 400px;
-    background: var(--primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 5rem;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.profile-image {
+    width: 100%;
+    height: 130%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
 }
 
 .about-text {
@@ -295,6 +303,17 @@ nav {
     transform: translateY(-3px);
 }
 
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .image-container {
+        height: 300px;
+    }
+}
 /* Projects Section */
 .projects {
     background: var(--light);
@@ -324,6 +343,8 @@ nav {
     transition: var(--transition);
     opacity: 0;
     transform: translateY(30px);
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card.animated {
@@ -349,6 +370,9 @@ nav {
 
 .project-content {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .project-content h3 {
@@ -369,6 +393,25 @@ nav {
     font-size: 0.8rem;
     margin-right: 8px;
     margin-bottom: 8px;
+}
+
+/* Fix for button alignment - Add this */
+.project-content .btn {
+    margin-top: auto;
+    align-self: flex-start;
+    padding: 0.8rem 1.5rem;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.project-content .btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
 }
 
 /* Contact Section */
